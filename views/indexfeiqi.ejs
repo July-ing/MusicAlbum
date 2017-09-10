@@ -1,0 +1,275 @@
+<!--http://alumt279.leanapp.cn/?albumId=59abf31e128fe1005a419b57&modelId=02-->
+<!doctype html>
+<html class="no-js">
+<head>
+    <!-- zhedie -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ablum</title>
+    <script src="https://cdn1.lncld.net/static/js/3.0.2/av-min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+    <script src="https://use.fontawesome.com/a2e96b056d.js"></script>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+    <!-- zhetie end -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* anim01 start*/
+            .anim01{
+                height: 100%;
+                width: 100%;
+            }
+            .anim01 p:first-of-type{
+                text-align: center;
+                background-color: #fff;
+                margin-top: 8%
+            }
+            .anim01 p:nth-of-type(2){
+                text-align: center;
+                background-color: #fff;
+                margin-left: 80%;
+                width: 10%;
+            }
+        /*anim01 end*/
+
+    </style>
+    <script>
+        jQuery(document).ready(function () {
+            var url = location.search;
+            var Request = {};
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1); //去掉?号
+                var strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    Request[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            function includeCss(filename) {
+                var head = document.getElementsByTagName('head')[0];
+                var link = document.createElement('link');
+                link.href = filename;
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                head.appendChild(link)
+            }
+            APP_ID = 'x0rWknk8MFeKytkW7etKkssL-gzGzoHsz';
+            APP_KEY = '9pbhbgpwavexpxGnQuyVKw3m';
+            aId = Request["albumId"];
+            mId = Request["modelId"];
+            query = new AV.Query('Photos');
+            urlPrefix = "http://ac-x0rwknk8.clouddn.com";
+            includeCss('css/' + mId + '.css');
+        })
+    </script>
+
+
+</head>
+<body>
+<div class="load">
+    loading...
+</div>
+
+<div class="container true" id="container">
+    <div class="top"><i id="music" class="fa fa-music am-icon-spin " aria-hidden="true"></i>
+    </div>
+    <em class="center" id="test" style="visibility: hidden"></em>
+    <audio id="music2" src="" controls autoplay style="visibility: hidden">你的浏览器不支持audio标签。</audio>
+    <ul id="id">
+        <li style="height:100%">
+            <div class="content" style="display:block">
+                <div class="anim01 photo">
+                    <p>卡通图</p>
+                    <p><em>照片</em>留住时间带走的</p>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="content">
+                
+            </div>
+        </li>
+        <li>
+            <div class="content"></div>
+        </li>
+        <li>
+            <div class="content"></div>
+        </li>
+        <li>
+            <div class="content"></div>
+        </li>
+        <li>
+            <div class="content"></div>
+        </li>
+        <li>
+            <div class="content"></div>
+        </li>
+        <li>
+            <div class="content"></div>
+        </li>
+    </ul>
+
+</div>
+
+<div class="bottom">
+    <i id="pype" class="fa fa-play" aria-hidden="true"></i>
+</div>
+<script>
+
+    jQuery(document).ready(function ($) {
+
+        AV.init({
+            appId: APP_ID,
+            appKey: APP_KEY
+        });
+        var url = "js/" + mId + ".js";
+
+        $.getScript(url, function () {
+            //这时候js已经成功加载
+            //把和加载的js有依赖关系的程序部分放在这里
+            query.get(aId).then(function (data) {
+                var jsonTXT = JSON.stringify(data);
+                return JSON.parse(jsonTXT);
+            }).then(function (ids) {
+                setMusic(ids.Music);
+                setUrl(ids);
+
+            })
+
+            function setMusic(mus) {
+                var src = urlPrefix + "/" + mus;
+                var music = document.getElementById('music2');
+                music.src = src;
+            }
+
+            function setUrl(data) {
+                var uLen = data.PhotosList.length, oLen = oNodeList.length;
+                var j = 0, i = 0;
+                var oContainer = document.getElementById('container');
+                var nodes = document.createElement('ul');
+
+                while (i < uLen) {
+                    var node = oNodeList[j % oLen][0].cloneNode(true);
+                    var photos = node.getElementsByClassName('photo');
+                    if (uLen - i - photos.length >= 0) {
+                        //可渲染
+
+                        for (var k = 0, pLen = photos.length; k < pLen
+                                ; k++) {
+                            photos[k].innerHTML = "<em>"+data.TextList[i]+"</em>";
+                            photos[k].style.backgroundImage = "url(" + urlPrefix +
+                                    "/" + data.PhotosList[i++] + ")";
+                        }
+                        nodes.appendChild(node);
+
+                        j++;
+                    } else {
+                        //换到一
+                        j = 0;
+                    }
+                }
+                nodes.id = 'ul';
+                nodes.firstElementChild.style.height = '100%';
+                nodes.firstChild.firstElementChild.style.display = 'block';
+                oContainer.appendChild(nodes);
+                load();
+            }
+        });
+    });
+</script>
+<script>
+    function load() {
+        var mark;
+
+        $('.load').hide();
+        $('.true').show();
+
+
+        $('html').one('touchstart', function (e) {
+            e.preventDefault();
+            var audioPlayer = document.getElementById('music2');
+            audioPlayer.play();
+        });
+        $("#music2").hide();
+        var count = 2;
+        $("#test").click(function (e) {
+            e.preventDefault();
+            $("li:nth-child(" + count + ")").animate({height: "100%"}, 700);
+            setTimeout(function () {
+                $("li:nth-child(" + count + ")").children().show();
+                count++;
+            }, 1000);
+
+        })
+        mark = setInterval(function () {
+            ani();
+        }, 5000);
+        function ani() {
+            $("#test").click();
+            if (count > $('li').length + 1) {
+                clearInterval(mark);
+            }
+        }
+
+
+        $("#pype").click(function (e) {
+            e.preventDefault()
+            $(this).toggleClass('fa-pause');
+            if (mark != "zanting") {
+                clearInterval(mark);
+                mark = "zanting";
+            } else {
+                mark = setInterval(function () {
+                    ani();
+                }, 5000);
+            }
+        })
+        var audioPlayer = document.getElementById('music2');
+        $("#music").click(function (e) {
+            e.preventDefault()
+            $(this).toggleClass('am-icon-spin');
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+                audioPlayer.pause();
+            }
+        })
+
+    }
+</script>
+<!--[if (gte IE 9)|!(IE)]>
+<!-->
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+
+</body>
+</html>

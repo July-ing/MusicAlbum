@@ -1,0 +1,425 @@
+/* anim01 starst*/
+.li1 div div:nth-child(2){
+    width: 87%;
+    margin: 0 auto;
+    height: 20%;
+    border-top: 1px solid #221111;
+    border-bottom: 1px solid #221111;
+    text-align: center;
+    padding-top: 10%;
+    position: relative;
+}
+.li1 div div:nth-child(2) img{
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    display: block;
+    top: -21%;
+}
+.anim01{
+    height: 62%;
+    width: 87%;
+    margin: 0 auto;
+    background-repeat: no-repeat ;
+    background-size:cover;
+}
+/*anim01 end*/
+
+/*anim02 start*/
+.li2 p{
+    height: 20%;
+    width: 90%;
+    margin: 0 auto;
+    font: bold 48px/300% "Academy Engraved LET","Microsoft YaHei UI","黑体";
+}
+.anim02{
+    width: 100%;
+    margin: 0 auto;
+    height: 80%;
+    background-repeat:   no-repeat ;
+    background-size:cover;
+}
+.anim02 div{
+    border: 1px solid #fff;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: none;
+    height: 100%;
+}
+/*anim02 end*/
+
+/*anim03 start*/
+.anim03{
+    width: 90%;
+    height: 88%;
+    margin: 15% auto 0;
+}
+.anim03 .a3top{
+    width: 100%;
+    height: 40%;
+    text-align: right;
+}
+.anim03 .a3bottom{
+    width: 100%;
+    height: 60%;
+}
+.anim03 .a3top .fl{
+    height: 100%;
+    width: 48%;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.anim03 .a3top .am-animation-slide-bottom{
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.anim03 .a3top .fr h1{
+    font:bold 48px/100% "Microsoft YaHei UI","黑体";
+}
+.anim03 .a3top .fr h1.am-animation-fade{
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.anim03 .a3top .fr p{
+    line-height: 200%;
+}
+.anim03 .a3top .fr p.am-animation-fade{
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.anim03 .a3bottom .fl{
+    margin-top: 4%;
+    height: 80%;
+    width: 48%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+}
+.anim03 .a3bottom .am-animation-slide-bottom{
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+.anim03 .a3bottom .fr{
+    margin-top: 20%;
+    height: 80%;
+    width: 48%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+}
+.anim03 .a3bottom .am-animation-slide-top{
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+/*anim03 end*/
+
+/*anim04 start*/
+.anim04{
+    width: 90%;
+    height: 90%;
+    margin: 5% auto;
+}
+.anim04 div:first-child{
+    width: 100%;
+    height: 10%;
+    text-align: right;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.anim04 h1{
+    font: bold 24px/30px "Microsoft YaHei UI","黑体";
+    margin: 0;
+}
+.anim04  p{
+    font-size: 12px;
+    margin: 0;
+}
+.anim04 .am-animation-slide-right{
+    width: 100%;
+    height: 60%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    margin: 5% 0;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.anim04 .am-animation-slide-left{
+    width: 60%;
+    height: 20%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    display: inline-block;
+    margin-right: 5%;
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+.anim04 div:last-child{
+    display: inline-block;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+/*anim04 end*/
+
+/*anim05 start*/
+.anim05{
+    width: 100%;
+    height: 100%;
+}
+.anim05 .a5top{
+    width: 90%;
+    height: 30%;
+    margin: 10% auto 0;
+}
+.a5top h1{
+    font: bold 56px "Microsoft YaHei UI","黑体";
+    margin: 0;
+}
+.a5top h2{
+    font: 16px"Microsoft YaHei UI","黑体";
+    margin: 0;
+}
+.a5top p{
+    font: 12px/30px "Microsoft YaHei UI","黑体";
+    margin: 0;
+}
+.anim05 .a5bottom{
+    width: 100%;
+    height: 58%;
+}
+.a5bottom .fl{
+    width: 49%;
+    height: 100%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+}
+.a5bottom .fr{
+    width: 49%;
+    height: 48.3%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+}
+.a5bottom .fr:last-child{
+    width: 49%;
+    height: 48.3%;
+    margin-top: 3.4%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+}
+/*myself huang*/
+.flipInX {
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both;
+    -webkit-animation-name:flipInX;
+    animation-name: flipInX;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+@keyframes flipInX {
+    from {
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    40% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+    }
+    80% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+    to {
+        transform: perspective(400px);
+    }
+}
+.flipInY{
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both;
+    -webkit-animation-name: flipInY;
+    animation-name: flipInY;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+@keyframes flipInY {
+    from {
+        transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+    40% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+        opacity: 1;
+    }
+    80% {
+        transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+    }
+    to {
+        transform: perspective(400px);
+    }
+}
+/*myself end*/
+.anim05 .am-animation-fade{
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.anim05 .flipInY{
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.anim05 .flipInX:nth-child(2){
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+.anim05 .flipInX:last-child{
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+/*anim05 end*/
+
+/*anim06 start*/
+.anim06{
+    width: 100%;
+    height: 100%;
+}
+.anim06 div:first-child{
+    position: absolute;
+    text-align: center;
+    width: 35%;
+    border: 1px solid #000;
+    left: 5%;
+    top: 10%;
+    padding: 2%;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.anim06 h1{
+    margin: 0;
+    font:bold  26px "宋体","黑体";
+}
+.anim06 span{
+    font-size:  36px;
+    line-height: 30px;
+}
+.anim06 p{
+    margin: 0;
+    font-size: 12px;
+}
+.anim06 div:nth-child(2){
+    margin-left: 20%;
+    width: 80%;
+    height: 35%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    margin-top: 45%;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.anim06 div:nth-child(3){
+    margin-left: 20%;
+    width: 80%;
+    height: 35%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    margin-top: 5%;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+/*anim06 end*/
+
+/*anim07 start*/
+.anim07{
+    width: 100%;
+    height: 100%;
+    text-align: right;
+
+}
+.anim07 div:first-child{
+    width: 95%;
+    margin-right: 5%;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.anim07 p{
+    font: bold 18px "Microsoft YaHei UI","黑体";
+    margin:10% 0 0 0;
+}
+.anim07 span{
+    font: 10px "Microsoft YaHei UI","黑体";
+    margin: 0;
+}
+.anim07 h1{
+    font: bold 48px "宋体","黑体";
+    margin: 0;
+    letter-spacing:-4px;
+}
+.anim07 div:last-child{
+    width: 85%;
+    margin-left: 15%;
+    height: 75%;
+    margin-top: 10%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+/*anim07 end*/
+
+/*anim08 start*/
+.anim08{
+    width: 86%;
+    height: 85%;
+    margin: 10% auto 5%;
+
+}
+.anim08 div:nth-child(1){
+    height: 10%;
+    text-align: center;
+    font: bold 38px "Microsoft YaHei UI","黑体";
+    letter-spacing:2px;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.anim08 div:nth-child(2){
+    height: 15%;
+    text-align: center;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.anim08 div:nth-child(3){
+    height: 40%;
+    width: 100%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    margin-bottom: 5%;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.anim08 div:nth-child(4){
+    display: inline-block;
+    height: 30%;
+    width: 48%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+.anim08 div:nth-child(5){
+    display: inline-block;
+    height: 30%;
+    width: 48%;
+    margin-left: 4%;
+    background-repeat: no-repeat ;
+    background-size:cover;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+/*anim08 end*/

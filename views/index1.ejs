@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <!-- zhedie -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0 user-scalable=no">
+    <title>01</title>
+    <script src="https://cdn1.lncld.net/static/js/3.0.2/av-min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.4/lodash.core.js"></script>
+
+
+    <script src="https://use.fontawesome.com/a2e96b056d.js"></script>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="assets/css/amazeui.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/01.css">
+
+
+</head>
+<body>
+<div class="load">
+    loading...
+</div>
+
+<div class="container true" id="container">
+    <div class="top"><i id="music" class="fa fa-music am-icon-spin " aria-hidden="true"></i>
+    </div>
+    <em class="center" id="test" style="hidden"></em>
+    <audio id="music2" src="http://ac-x0rwknk8.clouddn.com/d2a75fbc92f7050e8c84.mp3" controls autoplay style="hidden">你的浏览器不支持audio标签。</audio>
+
+    <div class="bottom"><i id="pype" class="fa fa-play" aria-hidden="true"></i>
+    </div>
+</div>
+
+
+<script>
+
+    jQuery(document).ready(function ($) {
+        var url = location.search;
+        var Request = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1); //去掉?号
+            var strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                Request[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+            }
+        }
+
+        console.log(location.search);
+        console.log(Request["albumId"]);
+        console.log(Request["modelId"]);
+
+        var APP_ID = 'x0rWknk8MFeKytkW7etKkssL-gzGzoHsz';
+        var APP_KEY = '9pbhbgpwavexpxGnQuyVKw3m';
+        var aId = Request["albumId"];
+        var mId = Request["modelId"];
+        var query = new AV.Query('Photos');
+        var urlPrefix = "http://ac-x0rwknk8.clouddn.com";
+
+        AV.init({
+            appId: APP_ID,
+            appKey: APP_KEY
+        });
+        var url = "js/" + mId + ".js";
+
+        $.getScript(url, function () {
+            //这时候js已经成功加载
+            //把和加载的js有依赖关系的程序部分放在这里
+            query.get(aId).then(function (data) {
+                var jsonTXT = JSON.stringify(data);
+                var album = JSON.parse(jsonTXT);
+                console.log(album);
+                return album;
+            }).then(function (ids) {
+                setMusic(ids.Music);
+                setUrl(ids.PhotosList);
+                console.log(ids); // 可以得到id的数组
+            })
+
+            function setMusic(mus) {
+                var src = urlPrefix +"/"+ mus;
+                var music = document.getElementById('music2');
+                music.src = src;
+                console.log(src);
+                console.log(music.value);
+
+            }
+
+
+            function setUrl(data) {
+                var uLen = data.length, oLen = oNodeList.length;
+                var j = 0, i = 0;
+                var oContainer = document.getElementById('container');
+                var nodes = document.createElement('ul');
+
+                while (i < uLen) {
+                    console.log(i);
+                    var node = oNodeList[j % oLen][0].cloneNode(true);
+                    console.log(node);
+                    var photos = node.getElementsByClassName('photo');
+                    console.log(photos);
+                    if (uLen - i - photos.length >= 0) {
+                        //可渲染
+
+                        for (var k = 0, pLen = photos.length; k < pLen
+                                ; k++) {
+                            console.log(data[i]);
+
+                            photos[k].style.backgroundImage = "url(" + urlPrefix +
+                                    "/" + data[i++] + ")";
+                            console.log(photos[k]);
+                        }
+                        console.log(node);
+                        nodes.appendChild(node);
+
+                        console.log(" --- ");
+                        j++;
+                    } else {
+                        //换到一
+                        j = 0;
+                        continue;
+                    }
+                }
+                nodes.id = 'ul';
+                console.log("sss");
+                nodes.firstElementChild.style.height = '100%';
+                nodes.firstChild.firstElementChild.style.display = 'block';
+                oContainer.appendChild(nodes);
+                console.log("end");
+                load();
+            }
+
+
+        });
+
+
+    });
+</script>
+<script>
+
+
+    function load() {
+        var mark;
+
+        $('.load').hide();
+        $('.true').show();
+
+
+        $('html').one('touchstart', function (e) {
+            e.preventDefault();
+            var audioPlayer = document.getElementById('music2');
+            audioPlayer.play();
+        });
+        $("#music2").hide();
+        var count = 2;
+        $("#test").click(function (e) {
+            e.preventDefault();
+            $("li:nth-child(" + count + ")").animate({height: "100%"}, 700);
+            setTimeout(function () {
+                $("li:nth-child(" + count + ")").children().show();
+                count++;
+            }, 1000);
+
+        })
+        mark = setInterval(function () {
+            ani();
+        }, 5000);
+        function ani() {
+            $("#test").click();
+            if (count > $('li').length + 1) {
+                clearInterval(mark);
+            }
+        }
+
+
+        $("#pype").click(function (e) {
+            e.preventDefault()
+            $(this).toggleClass('fa-pause');
+            if (mark != "zanting") {
+                clearInterval(mark);
+                mark = "zanting";
+            } else {
+                mark = setInterval(function () {
+                    ani();
+                }, 5000);
+            }
+        })
+        var audioPlayer = document.getElementById('music2');
+        $("#music").click(function (e) {
+            e.preventDefault()
+            $(this).toggleClass('am-icon-spin');
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+                audioPlayer.pause();
+            }
+        })
+
+    }
+    ;
+
+</script>
+<!--[if (gte IE 9)|!(IE)]>
+<!-->
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>LeanEngine</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <script>
+      var url = location.search;
+      var Request = new Object();
+      if(url.indexOf("?")!=-1){
+          var str = url.substr(1); //去掉?号
+          var strs = str.split("&");
+          for(var i=0;i<strs.length;i++){
+              Request[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+          }
+      }
+
+      console.log(location.search);
+      console.log(Request["albumId"]);
+      console.log(Request["modelId"]);
+  </script>
+  <body>
+    <h1>LeanEngine</h1>
+    <p>这是 LeanEngine 的示例应用</p>
+    <p>当前时间：<%= currentTime %></p>
+    <p><a href="/todos">一个简单的「TODO 列表」示例</a></p>
+  </body>
+</html>
