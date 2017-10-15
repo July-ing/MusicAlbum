@@ -88,7 +88,7 @@
     </div>
 
     <div class="bottom">
-        <i id="pype" class="fa fa-play" aria-hidden="true"></i>
+        <i id="pype" class="fa fa-pause" aria-hidden="true"></i>
     </div>
 <script>
 
@@ -99,7 +99,7 @@
             appKey: APP_KEY
         });
         var url = "js/" + mId + ".js";
-
+        console.log("url ", url);
         $.getScript(url, function () {
             //这时候js已经成功加载
             //把和加载的js有依赖关系的程序部分放在这里
@@ -110,10 +110,20 @@
             }).then(function (ids) {
                 setMusic(ids.music);
                 setUrl(ids);
+                setText(ids.subtitles);
 
 //                console.log(ids); // 可以得到id的数组
             })
 
+            function setText(text){
+                var ems = document.getElementsByClassName('text');
+                console.log(ems);
+                for(var i= 0,j= ems.length; i < j; i++){
+                    ems[i].innerHTML = text[i];
+                    console.log(ems[i]);
+                }
+
+            }
             function setMusic(mus) {
                 var src = urlPrefix + "/" + mus;
                 var music = document.getElementById('music2');
@@ -138,12 +148,8 @@
                     if (uLen - i - photos.length >= 0) {
                         //可渲染
 
-                        for (var k = 0, pLen = photos.length; k < pLen
-                                ; k++) {
+                        for (var k = 0, pLen = photos.length; k < pLen; k++) {
 //                            console.log(data[i]);
-                            var em = document.createElement('em');
-                            em.innerHTML = data.subtitles[i];
-                            photos[k].appendChild(em);
                             photos[k].style.backgroundImage = "url(" + urlPrefix +
                                     "/" + data.photos[i++] + ")";
                            // console.log(photos[k]);
@@ -206,14 +212,16 @@
 
         $("#pype").click(function (e) {
             e.preventDefault()
-            $(this).toggleClass('fa-pause');
+            $(this).toggleClass('fa-pause').toggleClass('fa-play');
             if (mark != "zanting") {
                 clearInterval(mark);
                 mark = "zanting";
+                console.log(mark);
             } else {
                 mark = setInterval(function () {
                     ani();
                 }, 5000);
+                console.log(mark);
             }
         })
         var audioPlayer = document.getElementById('music2');

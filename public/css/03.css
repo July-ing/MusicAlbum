@@ -20,7 +20,7 @@
     text-align: center;
     background-color: #fff;
     position: absolute;
-    height: 5%;
+    /*height: 5%;*/
     line-height: 1.6rem;
     top: 4%;
 }
@@ -128,7 +128,7 @@
     position: relative;
 }
 
-.anim03 .content div {
+.anim03 .content .heighten {
     width: 90%;
     position: absolute;
     bottom: 0;
@@ -163,7 +163,7 @@
 .anim05 .photo {
     margin: 5%;
     width: 90%;
-    height: 60%;
+    height: 70%;
     background: url("../public/src/1 (5).jpg") no-repeat;
     background-size: cover;
     position: relative;
@@ -172,6 +172,7 @@
 .anim05 .text {
     text-align: center;
     padding-top: 12%
+    height: 20%;
 }
 
 .flipInX {
@@ -250,8 +251,8 @@
 
 .anim06 .photo {
     width: 100%;
-    margin: 20% 0;
-    height: 40%;
+    margin-bottom: 15%;
+    height: 50%;
     background: url("../public/src/1 (5).jpg") no-repeat;
     background-size: cover;
 }
@@ -285,9 +286,7 @@
     position: relative;
 }
 
-.anim07 .text:first-of-type {
-    line-height: 10rem;
-}
+
 
 .anim07 .photo:nth-of-type(2) {
     position: absolute;

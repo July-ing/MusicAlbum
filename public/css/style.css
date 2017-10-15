@@ -160,7 +160,9 @@ ul {
 .ge5 {
   height: 5%;
 }
-
+.ge10{
+  height:10%;
+}
 .ge15 {
   height: 15%;
 }
@@ -175,6 +177,7 @@ ul {
 .photo{
   position: relative;
 }
+
 div.photo em{
   line-height: 1.6rem;
   position: absolute;
@@ -187,4 +190,16 @@ div.photo em{
 }
 .photo:hover em{
   visibility: visible;
+}
+.parent {
+  display:flex;
+  padding: 5%;
+}
+.text{
+  display:flex;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  margin:0;
+  padding:0;
+  width: 100%;
 }
