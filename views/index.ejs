@@ -1,4 +1,4 @@
-<!--http://musicalbum.leanapp.cn/?albumId=59cc5dfd67f35600429da8ec&modelId=03-->
+<!--http://musicalbums.leanapp.cn/?albumId=59cc5dfd67f35600429da8ec&modelId=03-->
 <!doctype html>
 <html class="no-js">
 <head>
@@ -74,10 +74,6 @@
 
 </head>
 <body>
-    <div class="load">
-        loading...
-    </div>
-
     <div class="container true" id="container">
         <div class="top"><i id="music" class="fa fa-music am-icon-spin " aria-hidden="true"></i>
         </div>
@@ -178,11 +174,7 @@
 <script>
     function load() {
         var mark;
-
-        $('.load').hide();
         $('.true').show();
-
-
         $('html').one('touchstart', function (e) {
             e.preventDefault();
             var audioPlayer = document.getElementById('music2');
